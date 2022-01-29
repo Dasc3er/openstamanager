@@ -13,7 +13,7 @@
         "preinstall": "npx only-allow pnpm"
     },
     "dependencies": {
-        "@inertiajs/inertia": "^0.10.1",
+        "@inertiajs/inertia": "^0.11.0",
         "@inertiajs/progress": "^0.2.6",
         "@maicol07/inertia-mithril": "^0.4.0",
         "@maicol07/mwc-card": "^0.25.2",

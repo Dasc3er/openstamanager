@@ -15,7 +15,7 @@
     "dependencies": {
         "@inertiajs/inertia": "^0.10.1",
         "@inertiajs/progress": "^0.2.6",
-        "@maicol07/inertia-mithril": "^0.4.0",
+        "@maicol07/inertia-mithril": "^0.5.0",
         "@maicol07/mwc-card": "^0.25.2",
         "@maicol07/mwc-layout-grid": "^0.25.3",
         "@material/data-table": "^13.0.0",

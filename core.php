@@ -312,3 +312,50 @@ if (database()->tableExists('zz_settings') && database()->tableExists('zz_langs'
     $lang = Models\Locale::find($id_lang)->language_code;
     $translator->setLocale($lang, $formatter);
 }
+
+use Symfony\Component\Config\Loader\FileLoader;
+use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\Routing\Loader\AttributeDirectoryLoader;
+use Symfony\Component\Routing\RequestContext;
+use Symfony\Component\Routing\Matcher\UrlMatcher;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Config\FileLocator;
+//use Doctrine\Common\Attributes\AnnotationRegistry;
+use Symfony\Bundle\FrameworkBundle\Routing\AttributeRouteControllerLoader;
+
+//AnnotationRegistry::registerLoader([$loader, 'loadClass']);
+
+$loader = new AttributeDirectoryLoader(
+    new FileLocator(),
+    new AttributeRouteControllerLoader()
+);
+
+$routes = $loader->load(__DIR__.'/src/');
+
+// Create a Request object from the current HTTP request
+$request = Request::createFromGlobals();
+
+// Create a RequestContext
+$context = new RequestContext();
+$context->fromRequest($request);
+
+// Create a UrlMatcher
+$matcher = new UrlMatcher($routes, $context);
+
+try {
+    // Match the current request to a route
+    $parameters = $matcher->match($request->getPathInfo());
+    $controllerWithMethod = $parameters['_controller'];
+
+    [$controllerClass, $method] = explode('::', $controllerWithMethod);
+    $controller = new $controllerClass();
+
+    // Call the controller method associated with the matched route
+    $response = $controller->$method();
+
+    // Send the response
+    $response->send();
+    exit();
+} catch (Exception $e) {
+}

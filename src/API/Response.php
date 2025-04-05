@@ -210,7 +210,7 @@ class Response
      */
     public static function isAPIRequest()
     {
-        return getURLPath() == slashes(base_path().'/api/index.php');
+        return getURLPath() == slashes(base_path_osm().'/api/index.php');
     }
 
     /**

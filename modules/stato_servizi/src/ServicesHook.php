@@ -75,7 +75,7 @@ class ServicesHook extends Manager
         return [
             'icon' => null,
             'message' => $message,
-            'link' => base_path().'/controller.php?id_module='.$id_module,
+            'link' => base_path_osm().'/controller.php?id_module='.$id_module,
             'show' => Services::isEnabled() && !empty($message),
         ];
     }

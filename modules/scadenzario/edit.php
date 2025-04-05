@@ -265,7 +265,7 @@ foreach ($scadenze as $i => $scadenza) {
                                 </td>
 
                                 <td>
-                                    <a onclick="launch_modal(\''.tr('Registra contabile pagamento').'\', \''.base_path().'/add.php?id_module='.$id_modulo_prima_nota.'&id_scadenze='.$scadenza['id'].'\');" class="btn btn-sm btn-primary">
+                                    <a onclick="launch_modal(\''.tr('Registra contabile pagamento').'\', \''.base_path_osm().'/add.php?id_module='.$id_modulo_prima_nota.'&id_scadenze='.$scadenza['id'].'\');" class="btn btn-sm btn-primary">
                                         <i class="fa fa-euro"></i> '.($dir == 'entrata' ? tr('Incassa') : tr('Paga')).'
                                     </a>
                                 </td>
@@ -356,7 +356,7 @@ echo '
                 </td>
 
                 <td>
-                    <a onclick="launch_modal(\''.tr('Registra contabile pagamento').'\', \''.base_path().'/add.php?id_module='.$id_modulo_prima_nota.'&id_scadenze=-id-\');" class="btn btn-sm btn-primary">
+                    <a onclick="launch_modal(\''.tr('Registra contabile pagamento').'\', \''.base_path_osm().'/add.php?id_module='.$id_modulo_prima_nota.'&id_scadenze=-id-\');" class="btn btn-sm btn-primary">
                         <i class="fa fa-euro"></i> '.($dir == 'entrata' ? tr('Incassa') : tr('Paga')).'
                     </a>
                 </td>

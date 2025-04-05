@@ -62,7 +62,7 @@ if (!headers_sent()) {
     ini_set('session.use_trans_sid', '0');
     ini_set('session.use_only_cookies', '1');
 
-    session_set_cookie_params(0, base_path(), null, isHTTPS(true));
+    session_set_cookie_params(0, base_path_osm(), null, isHTTPS(true));
     session_start();
 }
 
@@ -83,7 +83,7 @@ $logger->pushProcessor(new Monolog\Processor\UidProcessor());
 $logger->pushProcessor(new Monolog\Processor\WebProcessor());
 
 // Registrazione globale del logger
-Monolog\Registry::addLogger($logger, 'logs');
+Monolog\Registry::addlogger($logger, 'logs');
 
 use Monolog\Handler\FilterHandler;
 use Monolog\Handler\RotatingFileHandler;
@@ -162,7 +162,7 @@ $dbo = $database = database();
 // Istanziamento del gestore delle traduzioni del progetto
 $lang = !empty($config['lang']) ? $config['lang'] : (isset($_GET['lang']) ? $_GET['lang'] : null);
 $formatter = !empty($config['formatter']) ? $config['formatter'] : [];
-$translator = trans();
+$translator = trans_osm();
 $translator->addLocalePath(base_dir().'/locale');
 $translator->addLocalePath(base_dir().'/modules/*/locale');
 
@@ -178,12 +178,12 @@ if (!empty($skip_permissions)) {
     Permissions::skip();
 }
 
-if (!$continue && getURLPath() != slashes(base_path().'/index.php') && !Permissions::getSkip()) {
+if (!$continue && getURLPath() != slashes(base_path_osm().'/index.php') && !Permissions::getSkip()) {
     if (Auth::check()) {
         Auth::logout();
     }
 
-    redirect(base_path().'/index.php');
+    redirect_url(base_path_osm().'/index.php');
     exit;
 }
 
@@ -312,3 +312,5 @@ if (database()->tableExists('zz_settings') && database()->tableExists('zz_langs'
     $lang = Models\Locale::find($id_lang)->language_code;
     $translator->setLocale($lang, $formatter);
 }
+
+require_once __DIR__.'/public/index.php';

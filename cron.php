@@ -57,7 +57,7 @@ session_write_close();
 $pattern = '[%datetime%] %level_name%: %message% %context%'.PHP_EOL;
 $formatter = new Monolog\Formatter\LineFormatter($pattern);
 
-$logger = new Logger('Tasks');
+$logger = new logger_osm('Tasks');
 $handler = new RotatingFileHandler(base_dir().'/logs/cron.log', 7);
 $handler->setFormatter($formatter);
 $logger->pushHandler($handler);

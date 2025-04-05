@@ -45,7 +45,7 @@ try {
     $response = Response::manage();
 } catch (Exception $e) {
     // Log dell'errore
-    $logger = logger();
+    $logger = logger_osm();
     $logger->addRecord(Monolog\Logger::ERROR, $e);
 
     $response = Response::error('serverError');

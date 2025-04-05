@@ -67,7 +67,7 @@ $rs = $dbo->fetchArray($query);
 foreach ($rs as $r) {
     $result = [];
 
-    $result['link'] = base_path().'/editor.php?id_module='.$link_id.'&id_record='.$r['id'];
+    $result['link'] = base_path_osm().'/editor.php?id_module='.$link_id.'&id_record='.$r['id'];
     $result['title'] = $r['ragione_sociale'];
     $result['title'] .= !empty($r['deleted_at']) ? ' <small class="text-danger"><em>('.tr('eliminata').')</em></small>' : '';
     $result['category'] = 'Anagrafiche';
@@ -112,7 +112,7 @@ $plugin = $dbo->fetchArray('SELECT `zz_plugins`.`id` FROM `zz_plugins` WHERE `na
 foreach ($rs as $r) {
     $result = [];
 
-    $result['link'] = base_path().'/editor.php?id_module='.$link_id.'&id_record='.$r['id'].'#tab_'.$plugin[0]['id'];
+    $result['link'] = base_path_osm().'/editor.php?id_module='.$link_id.'&id_record='.$r['id'].'#tab_'.$plugin[0]['id'];
     $result['title'] = $r['Nome'];
     $result['category'] = 'Referenti';
 
@@ -167,7 +167,7 @@ $plugin = $dbo->fetchArray('SELECT `zz_plugins`.`id` FROM `zz_plugins` WHERE `na
 foreach ($rs as $r) {
     $result = [];
 
-    $result['link'] = base_path().'/editor.php?id_module='.$link_id.'&id_record='.$r['id'].'#tab_'.$plugin[0]['id'];
+    $result['link'] = base_path_osm().'/editor.php?id_module='.$link_id.'&id_record='.$r['id'].'#tab_'.$plugin[0]['id'];
     $result['title'] = $r['Nome'];
     $result['category'] = 'Sedi';
 

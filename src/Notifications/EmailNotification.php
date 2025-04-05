@@ -71,8 +71,8 @@ class EmailNotification extends PHPMailer implements NotificationInterface
                 $oauth2 = $account->oauth2;
                 if (!empty($oauth2)) {
                     $this->AuthType = 'XOAUTH2';
-                    $this->setOAuth(
-                        new OAuth([
+                    $this->setOauth_osm(
+                        new Oauth_osm([
                             'provider' => $oauth2->getProvider(),
                             'refreshToken' => $oauth2->getRefreshToken(),
                             'clientId' => $oauth2->client_id,
@@ -212,7 +212,7 @@ class EmailNotification extends PHPMailer implements NotificationInterface
 
         // Segnalazione degli errori
         if (!$result) {
-            $logger = logger();
+            $logger = logger_osm();
             foreach ($this->infos as $info) {
                 $logger->addRecord(\Monolog\Logger::ERROR, $info);
             }

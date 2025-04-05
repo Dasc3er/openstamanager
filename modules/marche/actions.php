@@ -114,7 +114,7 @@ switch (post('op')) {
 
         if (!empty($id_original)) {
             $database->commitTransaction();
-            redirect(base_path().'/editor.php?id_module='.$id_module.'&id_record='.($id_original ?: $id_record));
+            redirect_url(base_path_osm().'/editor.php?id_module='.$id_module.'&id_record='.($id_original ?: $id_record));
             exit;
         }
 
@@ -166,7 +166,7 @@ switch (post('op')) {
         } else {
             // Redirect alla marca se si sta aggiungendo una modello
             $database->commitTransaction();
-            redirect(base_path().'/editor.php?id_module='.$id_module.'&id_record='.($id_original ?: $id_record));
+            redirect_url(base_path_osm().'/editor.php?id_module='.$id_module.'&id_record='.($id_original ?: $id_record));
             exit;
         }
 

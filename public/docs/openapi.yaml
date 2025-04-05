@@ -1,0 +1,300 @@
+openapi: 3.0.3
+info:
+  title: 'Laravel API Documentation'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+tags:
+  -
+    name: Endpoints
+    description: ''
+paths:
+  '/api/errors/{status}{_format}':
+    get:
+      summary: 'Display a listing of the resource.'
+      operationId: displayAListingOfTheResource
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  type: /errors/404
+                  title: 'An error occurred'
+                  status: 404
+                  detail: ''
+                properties:
+                  type:
+                    type: string
+                    example: /errors/404
+                  title:
+                    type: string
+                    example: 'An error occurred'
+                  status:
+                    type: integer
+                    example: 404
+                  detail:
+                    type: string
+                    example: ''
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: status
+        description: ''
+        example: architecto
+        required: true
+        schema:
+          type: string
+      -
+        in: path
+        name: _format
+        description: 'Optional parameter.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: .zmi
+  '/api/contexts/{shortName}{_format}':
+    get:
+      summary: 'Generates a context according to the type requested.'
+      operationId: generatesAContextAccordingToTheTypeRequested
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: ''
+                properties:
+                  message:
+                    type: string
+                    example: ''
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: shortName
+        description: 'Optional parameter.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: architecto
+      -
+        in: path
+        name: _format
+        description: 'Optional parameter.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: architecto
+  '/api/validation_errors/{id}':
+    get:
+      summary: ''
+      operationId: getApiValidation_errorsId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Not exposed.'
+                properties:
+                  message:
+                    type: string
+                    example: 'Not exposed.'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the validation error.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/docs{_format}':
+    get:
+      summary: ''
+      operationId: getApiDocs_format
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'Format "rchitecto" is not supported'
+                properties:
+                  message:
+                    type: string
+                    example: 'Format "rchitecto" is not supported'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: _format
+        description: 'Optional parameter.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: architecto
+  '/api/.well-known/genid/{id}':
+    get:
+      summary: ''
+      operationId: getApiWellKnownGenidId
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'This route is not exposed on purpose. It generates an IRI for a collection resource without identifier nor item operation.'
+                properties:
+                  message:
+                    type: string
+                    example: 'This route is not exposed on purpose. It generates an IRI for a collection resource without identifier nor item operation.'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the genid.'
+        example: architecto
+        required: true
+        schema:
+          type: string
+  '/api/{index}{_format}':
+    get:
+      summary: ''
+      operationId: getApiIndex_format
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  type: /errors/404
+                  title: 'An error occurred'
+                  status: 404
+                  detail: 'Format "rchitecto" is not supported'
+                properties:
+                  type:
+                    type: string
+                    example: /errors/404
+                  title:
+                    type: string
+                    example: 'An error occurred'
+                  status:
+                    type: integer
+                    example: 404
+                  detail:
+                    type: string
+                    example: 'Format "rchitecto" is not supported'
+      tags:
+        - Endpoints
+      security: []
+    parameters:
+      -
+        in: path
+        name: index
+        description: 'Optional parameter.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: index
+      -
+        in: path
+        name: _format
+        description: 'Optional parameter.'
+        required: true
+        schema:
+          type: string
+        examples:
+          omitted:
+            summary: 'When the value is omitted'
+            value: ''
+          present:
+            summary: 'When the value is present'
+            value: architecto
+  /api/info:
+    get:
+      summary: ''
+      operationId: getApiInfo
+      description: ''
+      parameters: []
+      responses:
+        200:
+          description: ''
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: 'This is the About Page!'
+      tags:
+        - Endpoints
+      security: []

@@ -82,7 +82,7 @@ if (function_exists('customComponents')) {
 
 // Fix per funzione base_path non trovata in fase di aggiornamento da versione < 2.4.19
 if (!function_exists('base_path')) {
-    function base_path()
+    function base_path_osm()
     {
         return ROOTDIR;
     }
@@ -224,7 +224,7 @@ echo '
                 </h3>
             </div>
             <div class="card-body">
-                <form action="'.base_path().'/controller.php?id_module='.$id_module.'" method="post" enctype="multipart/form-data" id="update">
+                <form action="'.base_path_osm().'/controller.php?id_module='.$id_module.'" method="post" enctype="multipart/form-data" id="update">
                     <input type="hidden" name="op" value="upload">
 
 			        {[ "type": "file", "name": "blob", "required": 1, "accept": ".zip", "disabled": '.(setting('Attiva aggiornamenti') ? 0 : 1).' ]}
